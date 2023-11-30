@@ -1,21 +1,9 @@
-<p>user works!</p>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>User Component</title>
-</head>
-<body>
+<!-- user.component.html -->
 
 <div class="user-container">
   <img class="user-avatar" src="path/to/avatar.jpg" alt="User Avatar">
   <div class="user-details">
-    <h2 class="user-name">John Doe</h2>
-    <p class="user-info">User info -marwane.</p>
+    <h2 class="user-name">{{ user.name }}</h2>
+    <p class="user-info">{{ user.info }}</p>
   </div>
 </div>
-
-</body>
-</html>
