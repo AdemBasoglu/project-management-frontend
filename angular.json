@@ -25,7 +25,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/app/component/board/board.component.css",
+              "src/app/component/task/task.component.css",
+              "src/app/component/user/user.component.css"
             ],
             "scripts": []
           },
