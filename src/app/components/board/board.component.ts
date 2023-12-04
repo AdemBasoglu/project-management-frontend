@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Task } from '../../interfaces/Task';
+import { Board } from '../../interfaces/Board';
 
 @Component({
   selector: 'pm-board',
@@ -8,7 +10,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './board.component.css',
 })
 export class BoardComponent implements OnInit {
+  @Input() board: Board = {
+    id: 0,
+    name: '',
+    project: {
+      id: 0,
+      name: '',
+    },
+  };
+  tasks: Task[] = [];
+
+  constructor() {}
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // console.log(this.board);
   }
 }
