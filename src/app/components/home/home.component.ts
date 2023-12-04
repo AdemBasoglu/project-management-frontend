@@ -30,7 +30,9 @@ export class HomeComponent implements OnInit {
     this.userEmail = localEmail ? localEmail : '';
 
     this.userService.getUserByEmail(this.userEmail).subscribe({
-      next: (user) => {(this.sessionUser = user), console.log(this.sessionUser);},
+      next: (user) => {
+        (this.sessionUser = user), console.log(this.sessionUser);
+      },
       error: (err) => console.log(err),
     });
   }

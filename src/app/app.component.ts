@@ -14,5 +14,5 @@ export class AppComponent {
   // hasToken: boolean = false;
   // hasSession: boolean = false;
 
-  title = 'project-manager-frontend-personal';
+  title = 'project-manager-frontend';
 }
