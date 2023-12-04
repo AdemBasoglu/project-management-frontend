@@ -1,51 +1,60 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Board} from "../interfaces/Board";
-import {Observable} from "rxjs";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Board } from '../interfaces/Board';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BoardService {
-  private baseUrl: string = 'http://localhost:8080/board/';
+  private baseUrl: string = 'http://localhost:8080/board';
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
-
-  addBoard(board: Board): Observable<Board> {
+  addBoard(boardName: string, projectId: number): Observable<Board> {
     const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization: `Bearer ${token}`});
-    return this.http.post<Board>(`${this.baseUrl}/add/`, board);
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    return this.http.post<Board>(
+      `${this.baseUrl}/add?boardName=${boardName}&projectId=${projectId}`,
+      {},
+      { headers }
+    );
   }
 
-
-  getBoard(id: number): Observable<Board> {
+  getBoardById(boardId: number): Observable<Board> {
     const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization: `Bearer ${token}`});
-    return this.http.get<Board>(`${this.baseUrl}/get/${id}`);
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    return this.http.get<Board>(`${this.baseUrl}/get/${boardId}`, { headers });
   }
 
-
-  getByProjectId(id: number): Observable<Board[]> {
+  getBoardByProjectId(projectId: number): Observable<Board[]> {
     const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization: `Bearer ${token}`});
-    return this.http.get<Board[]>(`${this.baseUrl}/getByProjectId/${id}`);
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    return this.http.get<Board[]>(
+      `${this.baseUrl}/get-by-project/${projectId}`,
+      { headers }
+    );
   }
 
-
-  updateBoard(updateBoard: Board): Observable<Board> {
+  updateBoard(updatedBoard: Board, boardId: number): Observable<Board> {
     const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization: `Bearer ${token}`});
-    return this.http.put<Board>(`${this.baseUrl}/update/`, updateBoard);
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    return this.http.put<Board>(
+      `${this.baseUrl}/update/${boardId}`,
+      updatedBoard,
+      { headers }
+    );
   }
 
-
-  deleteBoard(id: number): Observable<Board> {
+  //NOTE - Pay attention to what actually should be return both backend and frontend.
+  deleteBoard(boardId: number) {
     const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization: `Bearer ${token}`});
-    return this.http.delete<Board>(`${this.baseUrl}/delete/${id}`);
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    return this.http.delete(`${this.baseUrl}/delete/${boardId}`, { headers });
   }
-
-
 }
