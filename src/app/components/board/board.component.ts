@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'pm-board',
@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './board.component.html',
   styleUrl: './board.component.css',
 })
-export class BoardComponent {}
+export class BoardComponent implements OnInit {
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+}
