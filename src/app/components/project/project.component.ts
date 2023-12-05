@@ -4,11 +4,16 @@ import { Board } from '../../interfaces/Board';
 import { BoardService } from '../../services/board.service';
 import { UserService } from '../../services/user.service';
 import { BoardComponent } from '../board/board.component';
+import {
+  CdkDragDrop,
+  CdkDropList,
+  moveItemInArray,
+} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'pm-project',
   standalone: true,
-  imports: [BoardComponent],
+  imports: [BoardComponent, CdkDropList],
   templateUrl: './project.component.html',
   styleUrl: './project.component.css',
 })
