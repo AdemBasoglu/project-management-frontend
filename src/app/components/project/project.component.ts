@@ -4,6 +4,7 @@ import { Board } from '../../interfaces/Board';
 import { BoardService } from '../../services/board.service';
 import { UserService } from '../../services/user.service';
 import { BoardComponent } from '../board/board.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import {
   CdkDragDrop,
   CdkDropList,
@@ -13,16 +14,11 @@ import {
 @Component({
   selector: 'pm-project',
   standalone: true,
-  imports: [BoardComponent, CdkDropList],
+  imports: [BoardComponent, CdkDropList, DragDropModule],
   templateUrl: './project.component.html',
   styleUrl: './project.component.css',
 })
 export class ProjectComponent implements OnInit {
-  // @Input() project: Project = {
-  //   id: 0,
-  //   name: '',
-  // };
-
   @Input() projectId = 0;
 
   boards: Board[] = [];

@@ -3,6 +3,8 @@ import { Task } from '../../interfaces/Task';
 import { Board } from '../../interfaces/Board';
 import { TaskComponent } from '../task/task.component';
 import { TaskService } from '../../services/task.service';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 import {
   CdkDragDrop,
   CdkDropList,
@@ -32,14 +34,16 @@ export class BoardComponent implements OnInit {
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    // console.log(this.board);
+    console.log(`Inint board with ID: ${this.board.id}`);
+
     this.taskService.getTaskByBoardId(this.board.id).subscribe({
       next: (tasks) => {
-        (this.tasks = tasks), console.log('TASKS: ' + this.tasks);
+        this.tasks = tasks;
       },
       error: (err) => console.log(err),
     });
   }
+
   drop(event: CdkDragDrop<Task[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(

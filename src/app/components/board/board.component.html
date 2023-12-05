@@ -1,5 +1,4 @@
-<h2>Board ID:{{ board.id}} | Name: {{ board.name }} | Project: {{ board.project.id }} - "{{ board.project.name }}"
-</h2>
+<h2>Board ID:{{ board.id}} | Name: {{ board.name }} </h2>
 <div cdkDropList [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event)">
   @for (task of tasks; track task) {
   <pm-task [task]="task" cdkDrag></pm-task>
