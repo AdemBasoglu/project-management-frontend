@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Task } from '../../interfaces/Task';
 import { TaskLabel } from '../../enums/TaskLabel';
-import { CdkDrag } from '@angular/cdk/drag-drop';
+import { CdkDrag, DragDropModule } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'pm-task',
   standalone: true,
-  imports: [CdkDrag],
+  imports: [CdkDrag, DragDropModule],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })

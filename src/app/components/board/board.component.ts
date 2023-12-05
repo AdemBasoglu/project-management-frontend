@@ -3,12 +3,15 @@ import { Task } from '../../interfaces/Task';
 import { Board } from '../../interfaces/Board';
 import { TaskComponent } from '../task/task.component';
 import { TaskService } from '../../services/task.service';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 import {
   CdkDragDrop,
   CdkDropList,
   transferArrayItem,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
+import { BoardService } from '../../services/board.service';
 
 @Component({
   selector: 'pm-board',
@@ -32,15 +35,19 @@ export class BoardComponent implements OnInit {
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    // console.log(this.board);
+    console.log(`Inint board with ID: ${this.board.id}`);
+
     this.taskService.getTaskByBoardId(this.board.id).subscribe({
       next: (tasks) => {
-        (this.tasks = tasks), console.log('TASKS: ' + this.tasks);
+        this.tasks = tasks;
       },
       error: (err) => console.log(err),
     });
   }
-  drop(event: CdkDragDrop<Task[]>) {
+
+  drop(event: CdkDragDrop<Task[]>, boardId: number) {
+    const taskId = event.previousContainer.data[event.previousIndex].id;
+
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -54,6 +61,8 @@ export class BoardComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+
+      this.taskService.changeBoard(Number(taskId), boardId).subscribe();
     }
   }
 }

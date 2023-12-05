@@ -2,7 +2,7 @@
 
 <div cdkDropListGroup>
   <!-- All lists in here will be connected. -->
-  @for(board of boards; track board.id){
-  <pm-board [board]="board" cdkDropList></pm-board>
+  @for(board of boards; track board){
+  <pm-board [board]="board"></pm-board>
   }
 </div>

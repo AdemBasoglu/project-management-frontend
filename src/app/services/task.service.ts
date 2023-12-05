@@ -69,7 +69,8 @@ export class TaskService {
     );
   }
 
-  changeBoard(taskId: number, boardId: string): Observable<Task> {
+  changeBoard(taskId: number, boardId: number): Observable<Task> {
+    console.log('Change board');
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
