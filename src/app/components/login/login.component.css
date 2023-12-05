@@ -1,0 +1,53 @@
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%; /* Set the container to full height of the viewport */
+  width: 250px; /* Adjust the width as needed */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 0; /* Set border radius to 0 for straight edges */
+  background-color: #f9f9f9;
+  z-index: 1000; /* Set z-index to ensure it appears above other content */
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+input[type="email"],
+input[type="password"],
+button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+
+
