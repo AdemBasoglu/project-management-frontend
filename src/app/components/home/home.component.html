@@ -1,3 +1,20 @@
-<p>home works!</p>
+
 <!-- This page will simulate project page -->
-<pm-project [projectId]="3" ></pm-project>
+<!--<pm-project [projectId]="3" ></pm-project> -->
+<!-- home.component.html -->
+
+<div>
+  <h1>Welcome to the Home Page</h1>
+
+  <p>User Email: {{ userEmail }}</p>
+
+  <div *ngIf="sessionUser.email !== ''">
+    <h2>User Details:</h2>
+    <ul>
+      <li>Email: {{ sessionUser.email }}</li>
+      <li>First Name: {{ sessionUser.firstName }}</li>
+      <li>Last Name: {{ sessionUser.lastName }}</li>
+    </ul>
+  </div>
+</div>
+
