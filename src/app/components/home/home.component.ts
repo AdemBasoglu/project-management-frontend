@@ -4,11 +4,13 @@ import { UserService } from '../../services/user.service';
 import { ProjectComponent } from '../project/project.component';
 import { Project } from '../../interfaces/Project';
 import { ProjectService } from '../../services/project.service';
+import {NgIf} from "@angular/common";
+import {SidebarComponent} from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ProjectComponent],
+  imports: [ProjectComponent, NgIf, SidebarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
