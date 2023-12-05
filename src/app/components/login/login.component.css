@@ -38,9 +38,18 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #45a049;
+
+.register-button {
+  background-color: dodgerblue; /* Green color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
+
+
 
 
 .grid {
