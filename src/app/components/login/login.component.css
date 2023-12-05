@@ -3,13 +3,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%; /* Set the container to full height of the viewport */
-  width: 250px; /* Adjust the width as needed */
+  height: 100%;
+  width: 250px;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 0; /* Set border radius to 0 for straight edges */
+  border-radius: 0;
   background-color: #f9f9f9;
-  z-index: 1000; /* Set z-index to ensure it appears above other content */
+  z-index: 1000;
   box-sizing: border-box;
   overflow-y: auto;
 }
