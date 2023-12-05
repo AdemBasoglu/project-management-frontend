@@ -11,6 +11,7 @@ import {
   transferArrayItem,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
+import { BoardService } from '../../services/board.service';
 
 @Component({
   selector: 'pm-board',
@@ -44,7 +45,9 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  drop(event: CdkDragDrop<Task[]>) {
+  drop(event: CdkDragDrop<Task[]>, boardId: number) {
+    const taskId = event.previousContainer.data[event.previousIndex].id;
+
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -58,6 +61,8 @@ export class BoardComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+
+      this.taskService.changeBoard(Number(taskId), boardId).subscribe();
     }
   }
 }
