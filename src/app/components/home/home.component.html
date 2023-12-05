@@ -3,10 +3,12 @@
 <!--<pm-project [projectId]="3" ></pm-project> -->
 <!-- home.component.html -->
 
+<app-sidebar></app-sidebar>
 <div>
+
   <h1>Welcome to the Home Page</h1>
 
-  <p>User Email: {{ userEmail }}</p>
+  <p>Welcome {{ sessionUser.firstName.toLocaleUpperCase() }}</p>
 
   <div *ngIf="sessionUser.email !== ''">
     <h2>User Details:</h2>
