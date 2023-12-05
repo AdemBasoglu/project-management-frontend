@@ -1,0 +1,17 @@
+
+<div class="sidebar">
+  <div>
+    <p>Welcome {{ sessionUser.firstName.toLocaleUpperCase() }}</p>
+    <p>Projects</p>
+    <ul>
+      <li *ngFor="let project of sessionUser.projects">{{ project.name }}</li>
+    </ul>
+    <button (click)="addProject()" class="addNewProject" routerLink="/addNewProject">New Project</button>
+  </div>
+  <button (click)="logout()" class="logoutbutton" routerLink="/login">Logout</button>
+</div>
+
+<div class="content">
+  <!-- Your content goes here -->
+</div>
+
