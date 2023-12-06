@@ -1,0 +1,18 @@
+<div class="task-dto">
+  <h2><mat-icon aria-hidden="false" aria-label="Add a task" fontIcon="add"></mat-icon><span>Add new Task</span></h2>
+
+  <div>
+    <label for="taskName">Name: </label>
+    <input id="taskName" for="taskName" [(ngModel)]="data.name" placeholder="Enter your name">
+  </div>
+
+  <div>
+    <label for="taskDescription">Description: </label>
+    <input type="text" id="taskDescription" for="taskDescription" [(ngModel)]="data.description"
+      placeholder="Enter description">
+  </div>
+
+  <button class="btn-primary" (click)="dialogRef.close(data)">Add</button>
+  <button class="btn-primary" (click)="dialogRef.close()">Cancel</button>
+
+</div>

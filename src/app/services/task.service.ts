@@ -11,13 +11,20 @@ export class TaskService {
 
   constructor(private http: HttpClient) {}
 
-  addTask(newTask: Task, boardId: number): Observable<Task> {
+  addTask(
+    name: string,
+    description: string,
+    boardId: number
+  ): Observable<Task> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
 
     return this.http.post<Task>(
       `${this.baseUrl}/add?boardId=${boardId}`,
-      newTask,
+      {
+        name,
+        description,
+      },
       { headers }
     );
   }
