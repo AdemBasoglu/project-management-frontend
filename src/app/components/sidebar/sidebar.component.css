@@ -1,5 +1,5 @@
 .sidebar {
-  font-size: xxx-large;
+  font-size: xx-large;
   position: fixed;
   background-color: -webkit-focus-ring-color;
   top: 0;
@@ -7,13 +7,14 @@
   height: 95%;
   width: 250px;
   padding: 10px;
-  margin: 10px;
+  margin: 20px;
   border: 2px solid #ccc;
   border-radius: 20px;
   z-index: 1000;
   box-sizing: border-box;
   overflow-y: auto;
-  color: white;
+  color: black;
+  text-align: center;
 }
 
 .userInformation {
@@ -21,6 +22,7 @@
   margin-bottom: 10px;
   font-size: medium;
   font-family: "Arial", serif;
+  text-align: center;
 }
 
 label {
@@ -43,6 +45,8 @@ button {
   color: white;
   font-size: 16px;
   cursor: pointer;
+  text-align: center;
+  text-justify: distribute-center-last;
 }
 
 button:hover {
@@ -59,14 +63,15 @@ button:hover {
   width: 100%;
   padding: 20px;
   text-align: center;
+  align-items: center;
 }
 
 .logoutbutton {
+  padding: 10px;
   margin: 10px;
-  background-color: red;
   position: absolute;
   bottom: 10px; /* Adjust as needed */
-  width: 90%;
-justify-items: center;
+  width: 80%;
+  text-align: center;
 
 }

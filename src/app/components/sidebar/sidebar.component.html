@@ -1,22 +1,23 @@
-<div class="sidebar">
+<div class="sidebar" *ngIf="sessionUser.email !==''" >
   <div>
     <p>Welcome {{ sessionUser.firstName }}</p>
 
-    <div class="userInformation">
-      <div *ngIf="sessionUser.email !== ''">
-          <p>Email: {{ sessionUser.email }}</p>
-          <p>First Name: {{ sessionUser.firstName }}</p>
-          <p>Last Name: {{ sessionUser.lastName }}</p>
-          <p>Projects: {{ sessionUser.projects.length }}</p>
+    <div class="userInformation" *ngIf="sessionUser.email !==''">
+      <div>
+        <p>Email: {{ userEmail }}</p>
+        <p>First Name: {{ sessionUser.firstName}}</p>
+        <p>Last Name: {{ sessionUser.lastName }}</p>
+        <p>Projects: {{ sessionUser.projects.length }}</p>
       </div>
     </div>
 
     <div class="newProjectButton">
-      <button (click)="addProject()" class="addNewProject" routerLink="/addNewProject">New Project</button>
+      <button (click)="addProject()" mat-raised-button color="primary">New Project</button>
     </div>
 
     <div class="logoutbutton">
-      <button (click)="logout()" class="logoutbutton" routerLink="/login">Logout</button>
+      <button (click)="logout()" mat-raised-button color="primary">Logout</button>
+
     </div>
   </div>
 </div>
