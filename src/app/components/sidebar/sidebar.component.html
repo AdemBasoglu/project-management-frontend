@@ -5,7 +5,7 @@
     <div class="userInformation" *ngIf="sessionUser.email !==''">
       <div>
         <p>Email: {{ userEmail }}</p>
-        <p>First Name: {{ }}</p>
+        <p>First Name: {{ sessionUser.firstName}}</p>
         <p>Last Name: {{ sessionUser.lastName }}</p>
         <p>Projects: {{ sessionUser.projects.length }}</p>
       </div>
