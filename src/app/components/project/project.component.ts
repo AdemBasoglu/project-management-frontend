@@ -15,6 +15,7 @@ import {
   CdkDropList,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'pm-project',
@@ -27,16 +28,19 @@ export class ProjectComponent implements OnInit {
   // Get route paramater.
   @Input('id') projectId = Number('');
 
+  project: Project = {
+    id: 0,
+    name: '',
+  };
   boards: Board[] = [];
 
   constructor(
-    private userService: UserService,
+    private projectService: ProjectService,
     private boardService: BoardService
   ) {}
 
   ngOnInit(): void {
-    console.log('project init');
-    console.log('PROJECT_ID ' + this.projectId);
+    console.log('INIT PROJECT_ID ' + this.projectId);
 
     this.boardService.getBoardByProjectId(this.projectId).subscribe({
       next: (boards) => {
@@ -45,6 +49,11 @@ export class ProjectComponent implements OnInit {
       },
       error: (err) => console.log(err),
     });
+
+    this.projectService.getProjectById(this.projectId).subscribe({
+      next: (project) => {
+        (this.project = project), console.log(this.project);
+      },
+    });
   }
 }
-  

@@ -1,11 +1,13 @@
 <h1>{{ sessionUser.firstName }} {{ sessionUser.lastName }} - Projects list </h1>
 
-@for (project of projects; track project) {
-<div>
-  <a [routerLink]="['/project/', project.id]">{{ project.id }} | {{ project.name }}</a>
-</div>
-}
+<div class="project-list-container">
+  @for (project of projects; track project) {
+  <div>
+    <a [routerLink]="['/project/', project.id]">{{ project.id }} | {{ project.name }}</a>
+  </div>
+  }
 
-<div>
-  <a href="#">Add Project</a>
+  <div>
+    <a href="#">Add Project</a>
+  </div>
 </div>

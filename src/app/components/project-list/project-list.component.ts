@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { Project } from '../../interfaces/Project';
 import { User } from '../../interfaces/User';
-import { ProjectService } from '../../services/project.service';
 import { UserService } from '../../services/user.service';
-import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'pm-project-list',
@@ -15,6 +14,7 @@ import { RouterModule } from '@angular/router';
 })
 export class ProjectListComponent implements OnInit {
   projects: Project[] = [];
+
   sessionUser: User = {
     email: '',
     password: '',
@@ -24,10 +24,7 @@ export class ProjectListComponent implements OnInit {
     tasks: [],
   };
 
-  constructor(
-    private userService: UserService,
-    private projectService: ProjectService
-  ) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     const email = localStorage.getItem('email');
