@@ -6,6 +6,11 @@ import { UserService } from '../../services/user.service';
 import { BoardComponent } from '../board/board.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {
+  Router,
+  provideRouter,
+  withComponentInputBinding,
+} from '@angular/router';
+import {
   CdkDragDrop,
   CdkDropList,
   moveItemInArray,
@@ -19,7 +24,8 @@ import {
   styleUrl: './project.component.css',
 })
 export class ProjectComponent implements OnInit {
-  @Input() projectId = 0;
+  // Get route paramater.
+  @Input('id') projectId = Number('');
 
   boards: Board[] = [];
 
@@ -41,3 +47,4 @@ export class ProjectComponent implements OnInit {
     });
   }
 }
+  
