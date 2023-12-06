@@ -9,7 +9,7 @@
 
   <h1>Welcome to the Home Page</h1>
 
-  <p>Welcome {{ sessionUser.firstName.toLocaleUpperCase() }}</p>
+  <p>Welcome {{ sessionUser.firstName}}</p>
 
   <div *ngIf="sessionUser.email !== ''">
     <h2>User Details:</h2>

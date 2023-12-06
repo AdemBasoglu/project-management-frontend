@@ -39,7 +39,29 @@ export class SidebarComponent implements OnInit {
     private authentication:AuthenticationService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('home initialized');
+
+    const localEmail = localStorage.getItem('email');
+    this.userEmail = localEmail ? localEmail : '';
+
+    this.userService.getUserByEmail(this.userEmail).subscribe({
+      next: (user) => {
+        (this.sessionUser = user),
+          console.log(this.sessionUser),
+          (this.project = this.sessionUser.projects[0]);
+      },
+      error: (err) => console.log(err),
+    });
+
+    this.projectService.getProjectById(3).subscribe({
+      next: (project) => {
+        this.project = project;
+      },
+      error: (err) => console.log(err),
+    });
+  }
+
 
   addProject(){
     this.projectService.addProject(this.project.name,this.userEmail)
