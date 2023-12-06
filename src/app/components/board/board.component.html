@@ -4,4 +4,8 @@
   @for (task of tasks; track task) {
   <pm-task id="{{ task.id }}" [task]="task" cdkDrag></pm-task>
   }
+
 </div>
+<button>
+  <mat-icon aria-hidden="false" aria-label="Add a task" fontIcon="add"></mat-icon><span>Add task</span>
+</button>

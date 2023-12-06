@@ -7,11 +7,12 @@ import {Project} from "../../interfaces/Project";
 import {User} from "../../interfaces/User";
 import {Router, RouterLink} from "@angular/router";
 import {AuthenticationService} from "../../services/authentication.service";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, HomeComponent, RouterLink],
+  imports: [CommonModule, HomeComponent, RouterLink, MatButtonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })

@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../interfaces/User';
 import { LoginResponse } from '../interfaces/LoginResponse';
-import { HttpClientModule } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',

@@ -3,6 +3,6 @@
 <div class="boards-container" cdkDropListGroup>
   <!-- All lists in here will be connected. -->
   @for(board of boards; track board){
-  <pm-board [board]="board"></pm-board>
+  <pm-board class="primary-shadow" [board]="board"></pm-board>
   }
 </div>

@@ -15,4 +15,5 @@ export const routes: Routes = [
   { path: 'board-edit', component: BoardEditComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: HomeComponent },
+
 ];
