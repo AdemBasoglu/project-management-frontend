@@ -4,8 +4,8 @@ import { UserService } from '../../services/user.service';
 import { ProjectComponent } from '../project/project.component';
 import { Project } from '../../interfaces/Project';
 import { ProjectService } from '../../services/project.service';
-import {NgIf} from "@angular/common";
-import {SidebarComponent} from "../sidebar/sidebar.component";
+import { NgIf } from '@angular/common';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-home',
@@ -37,8 +37,6 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('home initialized');
-
     const localEmail = localStorage.getItem('email');
     this.userEmail = localEmail ? localEmail : '';
 
