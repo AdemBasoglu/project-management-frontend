@@ -14,3 +14,19 @@ h2 {
   color: white;
   /* border-bottom: 1px solid var(--clr-primary); */
 }
+button {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  padding: 1rem;
+  border: none;
+  border-top: 1px solid var(--clr-primary);
+  border-radius: 0;
+  background-color: white;
+  color: var(--clr-primary);
+  transition: all 0.2s ease-out;
+}
+button:hover {
+  background-color: var(--clr-primary);
+  color: white;
+}

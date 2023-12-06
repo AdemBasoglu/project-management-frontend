@@ -4,6 +4,7 @@ import { Board } from '../../interfaces/Board';
 import { TaskComponent } from '../task/task.component';
 import { TaskService } from '../../services/task.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatIconModule } from '@angular/material/icon';
 
 import {
   CdkDragDrop,
@@ -16,7 +17,7 @@ import { BoardService } from '../../services/board.service';
 @Component({
   selector: 'pm-board',
   standalone: true,
-  imports: [TaskComponent, CdkDropList],
+  imports: [TaskComponent, CdkDropList, MatIconModule],
   templateUrl: './board.component.html',
   styleUrl: './board.component.css',
 })
