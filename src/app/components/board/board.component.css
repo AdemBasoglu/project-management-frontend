@@ -14,9 +14,10 @@ h2 {
   color: white;
   /* border-bottom: 1px solid var(--clr-primary); */
 }
-button {
+.btn-board-add {
   display: flex;
   align-items: center;
+  width: 100%;
   margin: 0px;
   padding: 1rem;
   border: none;
@@ -26,7 +27,7 @@ button {
   color: var(--clr-primary);
   transition: all 0.2s ease-out;
 }
-button:hover {
+.btn-board-add:hover {
   background-color: var(--clr-primary);
   color: white;
 }

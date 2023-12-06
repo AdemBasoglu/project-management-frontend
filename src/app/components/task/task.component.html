@@ -1,3 +1,6 @@
 <div class="task-drag" cdkDrag>
-  <span>{{ task.name }}</span>
+  <div>{{ task.name }}</div>
+  <button mat-icon-button matTooltip="Edit task" (click)="editTask()">
+    <mat-icon>more_vert</mat-icon>
+  </button>
 </div>

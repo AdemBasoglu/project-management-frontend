@@ -1,4 +1,3 @@
-
 .container {
   position: fixed;
   top: 0;
@@ -20,7 +19,7 @@ label {
   color: #333;
 }
 
-input[type="email"],
+/* input[type="email"],
 input[type="password"],
 button {
   width: 100%;
@@ -36,8 +35,7 @@ button {
   color: white;
   font-size: 16px;
   cursor: pointer;
-}
-
+} */
 
 .register-button {
   background-color: dodgerblue; /* Green color */
@@ -48,15 +46,8 @@ button {
   cursor: pointer;
 }
 
-
-
-
-
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
 }
-
-
-

@@ -22,7 +22,7 @@ import {
 import { BoardService } from '../../services/board.service';
 import {
   TaskDialogData,
-  TaskDtoComponent,
+  TaskDialogComponent,
 } from '../../dto/task-dto/task-dto.component';
 import { TaskLabel } from '../../enums/TaskLabel';
 
@@ -48,13 +48,7 @@ export class BoardComponent implements OnInit {
       name: '',
     },
   };
-
   tasks: Task[] = [];
-
-  newTask: TaskDialogData = {
-    name: '',
-    description: '',
-  };
 
   constructor(private taskService: TaskService, public dialog: Dialog) {}
 
@@ -85,23 +79,12 @@ export class BoardComponent implements OnInit {
   }
 
   openDialog(): void {
-    let newresult: TaskDialogData = {
-      name: '',
-      description: '',
-    };
-
-    const dialogRef = this.dialog.open<TaskDialogData>(TaskDtoComponent, {
+    const dialogRef = this.dialog.open<TaskDialogData>(TaskDialogComponent, {
       width: '400px',
-      data: { name: this.newTask.name, description: this.newTask.description },
+      data: { name: '', description: '' },
     });
 
     dialogRef.closed.subscribe((result) => {
-      // console.log(this.newTask);
-      console.log('The dialog was closed');
-      console.log(result);
-      console.log(result?.name);
-      console.log(result?.description);
-
       if (result) {
         this.taskService
           .addTask(result.name, result.description, this.board.id)

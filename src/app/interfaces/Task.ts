@@ -5,7 +5,7 @@ export interface Task {
   id: number;
   name: string;
   description: string;
-  // createdDate: Date;
+  createdDate: string;
   label: TaskLabel;
   board: Board;
 }

@@ -1,18 +1,20 @@
 @import url(app/css/normalize.css);
 
 :root {
-  --clr-primary: #007bff;
-  --clr-primary-rgb: 0, 123, 255;
-  --clr-primary-1: #f3f9ff;
-  --clr-primary-2: #b2d7ff;
-  --clr-primary-3: #64afff;
-  --clr-primary-4: #0361c7;
-  --clr-primary-5: #114781;
-  --clr-primary-6: #123050;
+  --clr-primary: #4758b8;
+  --clr-primary-rgb: 71, 88, 184;
+  --clr-primary-1: #eff0fd;
+  --clr-primary-2: #c4cdfd;
+  --clr-primary-3: #7b8ffd;
+  --clr-primary-4: #4758b8;
+  --clr-primary-5: #29336b;
+  --clr-primary-6: #202647;
+
   --clr-primary-hover: #054e9c;
 
   --clr-secondary: #4caf50;
   --clr-secondary-hover: #3a773c;
+  --mdc-theme-primary: #007bff;
 }
 
 html,
@@ -41,7 +43,7 @@ body {
   /* height: 100vh; */
   background-color: var(--clr-primary-1);
 }
-
+/*
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -49,7 +51,7 @@ input[type="password"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
-}
+} */
 
 .btn-primary {
   background-color: var(--clr-primary);
@@ -61,24 +63,12 @@ input[type="password"] {
   background-color: var(--clr-primary-hover);
 }
 
-/* pm-project {
-  border: 1px solid black;
-  background-color: #4caf50;
-}
-pm-board {
-  background-color: #b5d8fd;
-}
-pm-task {
-  background-color: #a6dda8;
-} */
-
-/* .pm-project {
-  background-color: #007bff;
-  outline: 3px solid black;
-} */
-
 .primary-shadow {
   -webkit-box-shadow: 0px 0px 15px 0px rgba(var(--clr-primary-rgb), 0.3);
   -moz-box-shadow: 0px 0px 15px 0px rgba(var(--clr-primary-rgb), 0.3);
   box-shadow: 0px 0px 15px 0px rgba(var(--clr-primary-rgb), 0.3);
+}
+
+button {
+  cursor: pointer;
 }
