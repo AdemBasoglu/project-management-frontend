@@ -1,10 +1,11 @@
 :host {
-  background-color: hsla(0, 64%, 40%, 0.89);
+  /* background-color: var(--clr-primary-1); */
 }
 
 .boards-container {
   display: flex;
-  /* flex-shrink: 0;
-  flex-grow: 0; */
   align-items: flex-start;
+}
+h1 {
+  color: var(--clr-primary-4);
 }
