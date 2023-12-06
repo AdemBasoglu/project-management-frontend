@@ -5,6 +5,13 @@ import { TaskComponent } from '../task/task.component';
 import { TaskService } from '../../services/task.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatIconModule } from '@angular/material/icon';
+import {
+  Dialog,
+  DialogRef,
+  DIALOG_DATA,
+  DialogModule,
+} from '@angular/cdk/dialog';
+import { FormsModule } from '@angular/forms';
 
 import {
   CdkDragDrop,
@@ -13,11 +20,22 @@ import {
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
 import { BoardService } from '../../services/board.service';
+import {
+  TaskDialogData,
+  TaskDialogComponent,
+} from '../../dto/task-dto/task-dto.component';
+import { TaskLabel } from '../../enums/TaskLabel';
 
 @Component({
   selector: 'pm-board',
   standalone: true,
-  imports: [TaskComponent, CdkDropList, MatIconModule],
+  imports: [
+    TaskComponent,
+    CdkDropList,
+    MatIconModule,
+    FormsModule,
+    DialogModule,
+  ],
   templateUrl: './board.component.html',
   styleUrl: './board.component.css',
 })
@@ -30,20 +48,13 @@ export class BoardComponent implements OnInit {
       name: '',
     },
   };
-
   tasks: Task[] = [];
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, public dialog: Dialog) {}
 
   ngOnInit(): void {
     console.log(`Inint board with ID: ${this.board.id}`);
-
-    this.taskService.getTaskByBoardId(this.board.id).subscribe({
-      next: (tasks) => {
-        this.tasks = tasks;
-      },
-      error: (err) => console.log(err),
-    });
+    this.updateTasks(this.board.id);
   }
 
   drop(event: CdkDragDrop<Task[]>, boardId: number) {
@@ -65,5 +76,32 @@ export class BoardComponent implements OnInit {
 
       this.taskService.changeBoard(Number(taskId), boardId).subscribe();
     }
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open<TaskDialogData>(TaskDialogComponent, {
+      width: '400px',
+      data: { name: '', description: '' },
+    });
+
+    dialogRef.closed.subscribe((result) => {
+      if (result) {
+        this.taskService
+          .addTask(result.name, result.description, this.board.id)
+          .subscribe({
+            next: (task) => this.tasks.push(task),
+            error: (err) => console.log(err),
+          });
+      }
+    });
+  }
+
+  updateTasks(boardID: number) {
+    this.taskService.getTaskByBoardId(boardID).subscribe({
+      next: (tasks) => {
+        this.tasks = tasks;
+      },
+      error: (err) => console.log(err),
+    });
   }
 }

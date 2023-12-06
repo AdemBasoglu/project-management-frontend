@@ -1,4 +1,4 @@
-<div cdkDropList [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event, board.id)">
+<div cdkDropList cdkDropListSortingDisabled [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event, board.id)">
   <h2>{{ board.name }}</h2>
 
   @for (task of tasks; track task) {
@@ -6,6 +6,6 @@
   }
 
 </div>
-<button>
+<button class="btn-board-add" (click)="openDialog()">
   <mat-icon aria-hidden="false" aria-label="Add a task" fontIcon="add"></mat-icon><span>Add task</span>
 </button>
