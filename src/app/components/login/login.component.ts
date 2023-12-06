@@ -29,7 +29,7 @@ export class LoginComponent {
         localStorage.setItem('email', this.email);
 
         console.log('token saved');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/projects']);
       },
       error: (err) => {
         if (err.status === 400) {
@@ -44,8 +44,4 @@ export class LoginComponent {
   navigateToRegister() {
     this.router.navigate(['/register']);
   }
-
-
-
-
 }
