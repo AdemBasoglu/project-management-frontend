@@ -1,3 +1,8 @@
-.custom-btn {
-  background-color: var(--clr-primary);
+.task-drag {
+  background-color: hsla(0, 0%, 0%, 0.05);
+
+  padding: 1rem;
+  margin: 0.2rem;
+
+  cursor: pointer;
 }

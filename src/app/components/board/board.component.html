@@ -1,5 +1,6 @@
 <div cdkDropList [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event, board.id)">
-  <h2>Board ID:{{ board.id}} | Name: {{ board.name }} </h2>
+  <h2>{{ board.name }}</h2>
+
   @for (task of tasks; track task) {
   <pm-task id="{{ task.id }}" [task]="task" cdkDrag></pm-task>
   }

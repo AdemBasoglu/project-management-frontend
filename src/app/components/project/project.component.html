@@ -1,6 +1,6 @@
-<h1>Project ID: {{ projectId }}</h1>
+<h1>{{ project.name }}</h1>
 
-<div cdkDropListGroup>
+<div class="boards-container" cdkDropListGroup>
   <!-- All lists in here will be connected. -->
   @for(board of boards; track board){
   <pm-board [board]="board"></pm-board>
