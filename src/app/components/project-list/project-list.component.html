@@ -1,1 +1,7 @@
-<p>project-list works!</p>
+<h1>{{ sessionUser.firstName }} {{ sessionUser.lastName }} - Projects list </h1>
+
+@for (project of projects; track project) {
+<div>
+  <a [routerLink]="['/project/', project.id]">{{ project.id }} | {{ project.name }}</a>
+</div>
+}
