@@ -9,7 +9,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { AddProjectDialogComponent } from '../dialogs/add-project-dialog/add-project-dialog.component';
+import { ProjectDialogComponent } from '../dialogs/project-dialog/project-dialog.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -51,7 +51,7 @@ export class SidebarComponent implements OnInit {
   }
 
   addProject() {
-    const dialogRef = this.dialog.open(AddProjectDialogComponent);
+    const dialogRef = this.dialog.open(ProjectDialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {

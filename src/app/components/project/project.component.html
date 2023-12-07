@@ -7,5 +7,9 @@
     @for(board of boards; track board){
     <pm-board class="primary-shadow" [board]="board"></pm-board>
     }
+
+    <button class="add-board primary-shadow" (click)="openDialog()">
+      <mat-icon>add</mat-icon><span>&nbsp;&nbsp;Add board</span>
+    </button>
   </div>
 </section>

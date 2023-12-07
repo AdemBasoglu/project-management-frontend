@@ -6,6 +6,7 @@ import { UserService } from '../../services/user.service';
 import { BoardComponent } from '../board/board.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { MatIconModule } from '@angular/material/icon';
 import {
   Router,
   provideRouter,
@@ -17,11 +18,22 @@ import {
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
 import { ProjectService } from '../../services/project.service';
+import { Dialog } from '@angular/cdk/dialog';
+import {
+  BoardDialogComponent,
+  BoardDialogData,
+} from '../dialogs/board-dialog/board-dialog.component';
 
 @Component({
   selector: 'pm-project',
   standalone: true,
-  imports: [SidebarComponent, BoardComponent, CdkDropList, DragDropModule],
+  imports: [
+    SidebarComponent,
+    BoardComponent,
+    CdkDropList,
+    DragDropModule,
+    MatIconModule,
+  ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.css',
 })
@@ -37,7 +49,8 @@ export class ProjectComponent implements OnInit {
 
   constructor(
     private projectService: ProjectService,
-    private boardService: BoardService
+    private boardService: BoardService,
+    public dialog: Dialog
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +68,22 @@ export class ProjectComponent implements OnInit {
       next: (project) => {
         (this.project = project), console.log(this.project);
       },
+    });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open<BoardDialogData>(BoardDialogComponent, {
+      width: '500px',
+      data: { name: '', description: '' },
+    });
+
+    dialogRef.closed.subscribe((result) => {
+      if (result) {
+        this.boardService.addBoard(result.name, this.projectId).subscribe({
+          next: (board) => this.boards.push(board),
+          error: (err) => console.log(err),
+        });
+      }
     });
   }
 }

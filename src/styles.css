@@ -15,6 +15,9 @@
   --clr-secondary: #4caf50;
   --clr-secondary-hover: #3a773c;
   --mdc-theme-primary: #007bff;
+
+  --width-board: 400px;
+  --width-dialog: 500px;
 }
 
 html,
@@ -31,25 +34,8 @@ body {
 }
 
 body {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
-  /* background-image: url("assets/log.jpeg"); */
-  /* background-size: cover; */
-  /* background-repeat: no-repeat; */
-  /* height: 100vh; */
   background-color: var(--clr-primary-1);
 }
-/*
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-} */
 
 .btn-primary {
   background-color: var(--clr-primary);
@@ -77,6 +63,7 @@ pm-project,
 pm-project-list {
   display: flex;
 }
+
 pm-register,
 pm-login {
   display: flex;
