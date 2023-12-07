@@ -5,18 +5,19 @@ import { Project } from '../../interfaces/Project';
 import { User } from '../../interfaces/User';
 import { UserService } from '../../services/user.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { SessionUserService } from '../../services/session-user.service';
+import { SessionInfoService } from '../../services/session-info.service';
 import {
   ProjectDialogData,
   ProjectDialogComponent,
 } from '../dialogs/project-dialog/project-dialog.component';
 import { Dialog } from '@angular/cdk/dialog';
 import { ProjectService } from '../../services/project.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, SidebarComponent, RouterModule],
+  imports: [CommonModule, SidebarComponent, RouterModule, MatIconModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -37,7 +38,7 @@ export class HomeComponent implements OnInit {
     private userService: UserService,
     public dialog: Dialog,
     private projetcService: ProjectService,
-    private sessionService: SessionUserService
+    private sessionService: SessionInfoService
   ) {}
 
   ngOnInit(): void {
@@ -67,7 +68,7 @@ export class HomeComponent implements OnInit {
             next: (project) => {
               this.projects.push(project);
               this.sessionUser.projects = this.projects;
-              this.updateSessionUser(this.sessionUser);
+              this.updateSessionInfo(this.sessionUser);
               // this.side.updateProjects(this.projects);
             },
             error: (err) => console.log(err),
@@ -82,14 +83,14 @@ export class HomeComponent implements OnInit {
         (this.sessionUser = user),
           // console.log(this.sessionUser),
           // sessionStorage.setItem('user', JSON.stringify(this.sessionUser)),
-          this.updateSessionUser(this.sessionUser),
+          this.updateSessionInfo(this.sessionUser),
           (this.projects = this.sessionUser.projects);
       },
       error: (err) => console.log(err),
     });
   }
 
-  updateSessionUser(user: User) {
+  updateSessionInfo(user: User) {
     this.sessionService.updateData(user);
   }
 }

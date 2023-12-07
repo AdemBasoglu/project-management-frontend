@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class SessionUserService {
+export class SessionInfoService {
   user: User = {
     email: '',
     password: '',
@@ -14,6 +14,7 @@ export class SessionUserService {
     projects: [],
     tasks: [],
   };
+
   private dataSubject = new BehaviorSubject<User>(this.user);
   public data$: Observable<User> = this.dataSubject.asObservable();
 

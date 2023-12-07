@@ -10,7 +10,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { ProjectDialogComponent } from '../dialogs/project-dialog/project-dialog.component';
-import { SessionUserService } from '../../services/session-user.service';
+import { SessionInfoService } from '../../services/session-info.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -22,6 +22,7 @@ import { Subscription } from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
   userEmail: string = '';
+
   sessionUser: User = {
     email: '',
     password: '',
@@ -32,13 +33,12 @@ export class SidebarComponent implements OnInit {
   };
 
   private subscription: Subscription;
+
   constructor(
     private userService: UserService,
-    private projectService: ProjectService,
     private authService: AuthenticationService,
     private router: Router,
-    private dialog: MatDialog,
-    private sessionService: SessionUserService
+    private sessionService: SessionInfoService
   ) {
     this.subscription = this.sessionService.data$.subscribe((sessionUser) => {
       this.sessionUser = sessionUser;
