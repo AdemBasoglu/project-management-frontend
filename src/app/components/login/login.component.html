@@ -2,17 +2,17 @@
   <h2>Login</h2>
   <mat-form-field>
     <mat-label>Email:</mat-label>
-    <input matInput type="email" [(ngModel)]="email" required>
+    <input matInput type="email" [(ngModel)]="data.email" required>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Password:</mat-label>
-    <input matInput type="password" [(ngModel)]="password" required>
+    <input matInput type="password" [(ngModel)]="data.password" required>
   </mat-form-field>
 
   <!-- Buttons -->
   <div class="btn-container-flex">
     <button mat-raised-button color="primary" (click)="login()">Login</button>
-    <button mat-raised-button color="warn" (click)="navigateToRegister()">Register</button>
+    <button mat-raised-button color="warn" (click)="goToRegister()">Register</button>
   </div>
 </div>

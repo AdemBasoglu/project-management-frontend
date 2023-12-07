@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginResponse } from '../../interfaces/LoginResponse';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { LoginData } from '../../interfaces/LoginData';
 
 @Component({
   selector: 'pm-login',
@@ -21,36 +22,43 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent {
-  email = '';
-  password = '';
-  loggedInMessage = '';
+export class LoginComponent implements OnInit {
+  data: LoginData = {
+    email: '',
+    password: '',
+    loggedInMessage: '',
+  };
 
   constructor(
     private router: Router,
     private authService: AuthenticationService
   ) {}
+  ngOnInit(): void {
+    if (localStorage.getItem('email')) this.router.navigate(['/home']);
+  }
 
   login() {
-    this.authService.login(this.email, this.password).subscribe({
+    this.authService.login(this.data.email, this.data.password).subscribe({
       next: (response: LoginResponse) => {
         localStorage.setItem('token', response.token);
-        localStorage.setItem('email', this.email);
+        localStorage.setItem('email', this.data.email);
 
         console.log('token saved');
-        this.router.navigate(['/projects']);
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         if (err.status === 400) {
-          this.loggedInMessage = 'Wrong email or password. Please try again.';
+          this.data.loggedInMessage =
+            'Wrong email or password. Please try again.';
         } else {
-          this.loggedInMessage = 'An error occurred. Please try again later.';
+          this.data.loggedInMessage =
+            'An error occurred. Please try again later.';
         }
       },
     });
   }
 
-  navigateToRegister() {
+  goToRegister() {
     this.router.navigate(['/register']);
   }
 }

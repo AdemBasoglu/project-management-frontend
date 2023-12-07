@@ -72,6 +72,7 @@ button {
 }
 
 .app-root,
+app-home,
 pm-project,
 pm-project-list {
   display: flex;
