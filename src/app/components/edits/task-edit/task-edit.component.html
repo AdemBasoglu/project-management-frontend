@@ -1,1 +1,51 @@
-<p>task-edit works!</p>
+<div class="dialog-container primary-shadow">
+  <h2>View | Edit task</h2>
+  <div class="form-field-double">
+    <mat-form-field>
+      <mat-label>ID:</mat-label>
+      <input matInput [(ngModel)]="data.id" disabled value="{{ data.id }}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Created:</mat-label>
+      <input matInput [(ngModel)]="data.createdDate" disabled value="{{ data.createdDate }}">
+    </mat-form-field>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Name: </mat-label>
+    <input matInput [(ngModel)]="data.name" placeholder="Enter task name">
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>Description: </mat-label>
+    <input matInput [(ngModel)]="data.description" placeholder="Enter description">
+  </mat-form-field>
+
+
+
+  <mat-form-field>
+    <mat-label>Label: </mat-label>
+    <!-- <input matInput [(ngModel)]="data.label" placeholder="Enter description"> -->
+    <mat-select [(ngModel)]="data.label">
+      @for (label of labels | keyvalue; track label.key) {
+      <!-- <mat-option>1</mat-option> -->
+      <mat-option [value]="label.value">{{label.value}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Board: </mat-label>
+    <input matInput [(ngModel)]="data.board.name" disabled>
+  </mat-form-field>
+
+  <div class=" btn-container-flex">
+    <button mat-raised-button color="primary" class="btn-task-dialog" (click)="dialogRef.close(data)">Update</button>
+    <button mat-raised-button color="warn" class="btn-task-dialog"
+      (click)="[dialogRef.close(), delete(data.id)]">Delete</button>
+    <button mat-raised-button color="warn" class="btn-task-dialog warn" (click)="dialogRef.close()">Cancel</button>
+  </div>
+
+</div>

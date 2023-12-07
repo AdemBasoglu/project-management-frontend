@@ -25,6 +25,27 @@ export class UserService {
     return this.http.get<User>(`${this.baseUrl}/get/${email}`, { headers });
   }
 
+  getAllUsersByProjectId(projectId: number): Observable<User[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    return this.http.get<User[]>(
+      `${this.baseUrl}/get-by-project/${projectId}`,
+      {
+        headers,
+      }
+    );
+  }
+
+  getAllUsersByTaskId(taskId: number): Observable<User[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
+
+    return this.http.get<User[]>(`${this.baseUrl}/get-by-task/${taskId}`, {
+      headers,
+    });
+  }
+
   updateUser(updateUser: User): Observable<User> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({ Authorization: `Bearer ${token}` });
