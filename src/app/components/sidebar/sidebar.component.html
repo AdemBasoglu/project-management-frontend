@@ -1,23 +1,34 @@
-<div class="sidebar" *ngIf="sessionUser.email !==''" >
-  <div>
-    <p>Welcome {{ sessionUser.firstName }}</p>
+@if (sessionUser.email !== "") {
 
-    <div class="userInformation" *ngIf="sessionUser.email !==''">
-      <div>
-        <p>Email: {{ userEmail }}</p>
-        <p>First Name: {{ sessionUser.firstName}}</p>
-        <p>Last Name: {{ sessionUser.lastName }}</p>
-        <p>Projects: {{ sessionUser.projects.length }}</p>
-      </div>
+<aside class="sidebar">
+  <div class="info-container">
+    <img class="sidebar-avatar" src=".\assets\images\users\profile-photo-anonymous.jpg" alt="">
+    <div class="info-field">
+      <p class="info-label">User:</p>
+      <p class="info-data">{{ sessionUser.firstName}} {{ sessionUser.lastName }}</p>
     </div>
 
-    <div class="newProjectButton">
-      <button (click)="addProject()" mat-raised-button color="primary">New Project</button>
+    <div class="info-field">
+      <p class="info-label">Email:</p>
+      <p class="info-data">{{ sessionUser.email }} </p>
     </div>
 
-    <div class="logoutbutton">
-      <button (click)="logout()" mat-raised-button color="primary">Logout</button>
+    <div class="info-field">
+      <p class="info-label">Projects:</p>
+      <p class="info-data">{{ sessionUser.projects.length }} </p>
+    </div>
 
+    <div class="info-field">
+      <p class="info-label">Tasks:</p>
+      <p class="info-data">{{ sessionUser.tasks.length }} </p>
     </div>
   </div>
-</div>
+
+  <div class="btn-sidebar-container">
+    <button class="btn-sidebar" (click)="viewAllProjects()" mat-raised-button>View all projects</button>
+
+    <button class="btn-sidebar" (click)="logout()" mat-raised-button>Logout</button>
+  </div>
+
+</aside>
+}

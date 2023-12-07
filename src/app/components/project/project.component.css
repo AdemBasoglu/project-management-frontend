@@ -1,9 +1,13 @@
+section {
+  padding: 0rem 2rem;
+}
 .boards-container {
   display: flex;
   align-items: flex-start;
 }
 h1 {
   color: var(--clr-primary-4);
+  padding: 1rem 1rem 0rem 1rem;
 }
 
 .add-board {
