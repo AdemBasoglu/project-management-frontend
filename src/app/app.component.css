@@ -33,3 +33,7 @@
 .app-root {
   display: flex;
 }
+
+/* :host {
+  display: flex;
+} */

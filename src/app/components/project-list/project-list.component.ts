@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 import { Project } from '../../interfaces/Project';
 import { User } from '../../interfaces/User';
 import { UserService } from '../../services/user.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'pm-project-list',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, SidebarComponent, RouterModule],
   templateUrl: './project-list.component.html',
   styleUrl: './project-list.component.css',
 })

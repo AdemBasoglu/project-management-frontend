@@ -1,19 +1,30 @@
-<form (ngSubmit)="register()" class="register-form">
-  <div class="form-header"><h2>Register</h2></div>
+<div class="register-form primary-shadow">
+  <h2>Register</h2>
 
-  <div class="form-group">
-    <input type="text" placeholder="First Name" [(ngModel)]="newUser.firstName" name="firstName" required>
-  </div>
-  <div class="form-group">
-    <input type="text" placeholder="Last Name" [(ngModel)]="newUser.lastName" name="lastName" required>
-  </div>
-  <div class="form-group">
-    <input type="email" placeholder="E-mail" [(ngModel)]="newUser.email" name="email" required>
-  </div>
-  <div class="form-group">
-    <input type="password" placeholder="Password" [(ngModel)]="newUser.password" name="password" required>
-  </div>
-  <button type="submit">Register</button>
+  <mat-form-field>
+    <mat-label>Fisrt name: </mat-label>
+    <input matInput [(ngModel)]="newUser.firstName" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Last name: </mat-label>
+    <input matInput [(ngModel)]="newUser.lastName" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email: </mat-label>
+    <input matInput type="email" [(ngModel)]="newUser.email" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password: </mat-label>
+    <input matInput type="password" [(ngModel)]="newUser.password" required>
+  </mat-form-field>
 
 
-</form>
+  <div class="btn-container-flex">
+    <button mat-raised-button color="primary" (click)="register()">Register</button>
+    <button mat-raised-button color="warn" (click)="navigateToLogin()">Back to login</button>
+  </div>
+
+</div>

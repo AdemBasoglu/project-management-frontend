@@ -1,4 +1,4 @@
-@import url(app/css/normalize.css);
+/* @import url(app/css/normalize.css); */
 
 :root {
   --clr-primary: #4758b8;
@@ -69,4 +69,17 @@ input[type="password"] {
 
 button {
   cursor: pointer;
+}
+
+.app-root,
+pm-project,
+pm-project-list {
+  display: flex;
+}
+pm-register,
+pm-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
