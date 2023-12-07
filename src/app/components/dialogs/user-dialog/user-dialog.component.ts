@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-user-dto',
+  selector: 'app-user-dialog',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './user-dto.component.html',
+  templateUrl: './user-dialog.component.html',
   styleUrl: './user-dto.component.css'
 })
-export class UserDtoComponent {
+export class UserDialogComponent {
 
 }

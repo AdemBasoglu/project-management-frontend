@@ -18,7 +18,7 @@ export interface TaskDialogData {
 }
 
 @Component({
-  selector: 'app-task-dto',
+  selector: 'app-task-dialog',
   standalone: true,
   imports: [
     CommonModule,
@@ -28,8 +28,8 @@ export interface TaskDialogData {
     MatFormFieldModule,
     MatButtonModule,
   ],
-  templateUrl: './task-dto.component.html',
-  styleUrl: './task-dto.component.css',
+  templateUrl: './task-dialog.component.html',
+  styleUrl: './task-dialog.component.css',
 })
 export class TaskDialogComponent {
   constructor(

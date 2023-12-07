@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { ProjectService } from '../../services/project.service';
-import { UserService } from '../../services/user.service';
-import { Project } from '../../interfaces/Project';
-import { User } from '../../interfaces/User';
+import { ProjectService } from '../../../services/project.service';
+import { UserService } from '../../../services/user.service';
+import { Project } from '../../../interfaces/Project';
+import { User } from '../../../interfaces/User';
 
 @Component({
   selector: 'app-add-project-dialog',

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BoardService} from "../../services/board.service";
+import {BoardService} from "../../../services/board.service";
 import {Router} from "@angular/router";
-import {Board} from "../../interfaces/Board";
+import {Board} from "../../../interfaces/Board";
 import {FormsModule} from "@angular/forms";
 
 @Component({

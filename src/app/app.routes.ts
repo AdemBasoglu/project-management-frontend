@@ -3,7 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProjectComponent } from './components/project/project.component';
-import { BoardEditComponent } from './components/board-edit/board-edit.component';
+import { BoardEditComponent } from './components/edits/board-edit/board-edit.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
