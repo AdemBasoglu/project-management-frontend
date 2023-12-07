@@ -9,7 +9,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dialog.component'; // Ek bir bileşen olarak oluşturmanız gerekir
+import { ProjectDialogComponent } from '../dialogs/project-dialog/project-dialog.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,11 +20,6 @@ import { AddProjectDialogComponent } from '../add-project-dialog/add-project-dia
 })
 export class SidebarComponent implements OnInit {
   userEmail: string = '';
-
-  project: Project = {
-    id: 0,
-    name: '',
-  };
 
   sessionUser: User = {
     email: '',
@@ -40,38 +35,26 @@ export class SidebarComponent implements OnInit {
     private projectService: ProjectService,
     private authService: AuthenticationService,
     private router: Router,
-    private dialog: MatDialog // MatDialog'ı buraya ekleyin
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    console.log('home initialized');
-
     const localEmail = localStorage.getItem('email');
     this.userEmail = localEmail ? localEmail : '';
 
     this.userService.getUserByEmail(this.userEmail).subscribe({
       next: (user) => {
-        (this.sessionUser = user),
-          console.log(this.sessionUser),
-          (this.project = this.sessionUser.projects[0]);
-      },
-      error: (err) => console.log(err),
-    });
-
-    this.projectService.getProjectById(3).subscribe({
-      next: (project) => {
-        this.project = project;
+        (this.sessionUser = user), console.log(this.sessionUser);
       },
       error: (err) => console.log(err),
     });
   }
 
   addProject() {
-    const dialogRef = this.dialog.open(AddProjectDialogComponent);
+    const dialogRef = this.dialog.open(ProjectDialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        // Dialogdan gelen proje adını kullanarak yeni proje ekleme işlemleri
         this.projectService.addProject(result, this.userEmail);
       }
     });

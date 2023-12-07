@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../interfaces/User';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   newUser: User = {
     email: '',
     projects: [],
@@ -31,10 +31,13 @@ export class RegisterComponent {
     private router: Router,
     private authService: AuthenticationService
   ) {}
+  ngOnInit(): void {
+    if (localStorage.getItem("email")) this.router.navigate(['/home']);
+  }
 
   register() {
     if (!this.newUser.email || !this.newUser.password) {
-      alert('PLease enter an email and password.');
+      alert('Please enter an email and password.');
       return;
     }
 
@@ -42,8 +45,7 @@ export class RegisterComponent {
       next: (response) => {
         this.registrationSuccess = true;
         alert('You have successfully registered. Please log in.');
-
-        this.router.navigate(['/login']);
+        this.goToLogin();
       },
       error: (error) => {
         console.error('Error adding user', error);
@@ -51,7 +53,7 @@ export class RegisterComponent {
     });
   }
 
-  navigateToLogin() {
+  goToLogin() {
     this.router.navigate(['/login']);
   }
 }

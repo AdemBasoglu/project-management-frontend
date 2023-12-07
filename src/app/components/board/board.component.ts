@@ -20,11 +20,9 @@ import {
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
 import { BoardService } from '../../services/board.service';
-import {
-  TaskDialogData,
-  TaskDialogComponent,
-} from '../../dto/task-dto/task-dto.component';
+
 import { TaskLabel } from '../../enums/TaskLabel';
+import { TaskDialogComponent, TaskDialogData } from '../dialogs/task-dialog/task-dialog.component';
 
 @Component({
   selector: 'pm-board',
@@ -80,7 +78,7 @@ export class BoardComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open<TaskDialogData>(TaskDialogComponent, {
-      width: '400px',
+      width: '500px',
       data: { name: '', description: '' },
     });
 

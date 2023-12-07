@@ -1,11 +1,31 @@
-:host {
-  /* background-color: var(--clr-primary-1); */
-}
-
 .boards-container {
   display: flex;
   align-items: flex-start;
 }
 h1 {
   color: var(--clr-primary-4);
+}
+
+.add-board {
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-primary);
+  border: 1px solid var(--clr-primary);
+  border-radius: 0.5rem;
+
+  width: var(--width-board);
+  margin: 0.5rem;
+  overflow: hidden;
+  min-width: var(--width-board);
+  padding: 1rem;
+
+  font-size: medium;
+
+  background-color: white;
+  color: var(--clr-primary);
+  transition: all 0.2s ease-out;
+}
+.add-board:hover {
+  background-color: var(--clr-primary);
+  color: white;
 }
