@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { ProjectService } from '../../services/project.service';
@@ -10,6 +10,8 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { ProjectDialogComponent } from '../dialogs/project-dialog/project-dialog.component';
+import { SessionInfoService } from '../../services/session-info.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -30,13 +32,18 @@ export class SidebarComponent implements OnInit {
     tasks: [],
   };
 
+  private subscription: Subscription;
+
   constructor(
     private userService: UserService,
-    private projectService: ProjectService,
     private authService: AuthenticationService,
     private router: Router,
-    private dialog: MatDialog
-  ) {}
+    private sessionService: SessionInfoService
+  ) {
+    this.subscription = this.sessionService.data$.subscribe((sessionUser) => {
+      this.sessionUser = sessionUser;
+    });
+  }
 
   ngOnInit(): void {
     const localEmail = localStorage.getItem('email');
@@ -50,14 +57,8 @@ export class SidebarComponent implements OnInit {
     });
   }
 
-  addProject() {
-    const dialogRef = this.dialog.open(ProjectDialogComponent);
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        this.projectService.addProject(result, this.userEmail);
-      }
-    });
+  viewAllProjects() {
+    this.router.navigate(['/home']);
   }
 
   logout() {

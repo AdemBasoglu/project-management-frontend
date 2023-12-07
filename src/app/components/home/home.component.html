@@ -1,17 +1,20 @@
 <app-sidebar></app-sidebar>
-
 <section>
-  <h1>{{ sessionUser.firstName }} {{ sessionUser.lastName }} - Projects list </h1>
+  @if (sessionUser.firstName !== "") {
+  <h1>{{ sessionUser.firstName }}'s projects </h1>
+  } @else {
+  <h1>All projects</h1>
+  }
 
   <div class="project-list-container">
     @for (project of projects; track project) {
-    <div>
-      <a [routerLink]="['/project/', project.id]">{{ project.id }} | {{ project.name }}</a>
+    <div class="btn-project primary-shadow">
+      <a [routerLink]="['/project/', project.id]">{{ project.name }}</a>
     </div>
     }
 
-    <div>
-      <a href="#">Add Project</a>
+    <div class="btn-project primary-shadow btn-add">
+      <a (click)="openDialog()"><mat-icon>add</mat-icon>&nbsp;&nbsp; Add Project</a>
     </div>
   </div>
 </section>

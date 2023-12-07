@@ -18,6 +18,8 @@
 
   --width-board: 400px;
   --width-dialog: 500px;
+  --width-sidebar: 280px;
+  --width-project-btn: 280px;
 }
 
 html,

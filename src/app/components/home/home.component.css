@@ -1,14 +1,16 @@
 h1 {
-  /* color: var(--clr-secondary); */
   margin: 0.5rem;
+  padding-left: 0;
+  margin-block: 1.5rem;
 }
 
 .project-list-container {
   display: flex;
-  /* flex-wrap: wrap; */
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-div {
+/* div {
   display: flex;
   flex-wrap: wrap;
   min-width: 300px;
@@ -26,4 +28,43 @@ a {
 
 a:hover {
   background-color: var(--clr-primary-hover);
+} */
+.btn-project {
+  display: flex;
+  align-items: center;
+
+  border: 1px solid var(--clr-primary);
+  border-radius: 0.5rem;
+
+  overflow: hidden;
+}
+.btn-project > a {
+  display: flex;
+
+  background-color: var(--clr-primary);
+  padding: 2rem;
+  min-width: var(--width-project-btn);
+  height: 100%;
+
+  align-items: center;
+  text-align: right;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+
+  cursor: pointer;
+  transition: all 259ms ease-in;
+}
+
+.btn-project > a:hover {
+  background-color: white;
+  color: var(--clr-primary);
+}
+
+.btn-add > a {
+  background-color: white;
+  color: var(--clr-primary);
+}
+.btn-add:hover {
+  outline: 2px solid var(--clr-primary);
 }
