@@ -22,7 +22,10 @@ import {
 import { BoardService } from '../../services/board.service';
 
 import { TaskLabel } from '../../enums/TaskLabel';
-import { TaskDialogComponent, TaskDialogData } from '../dialogs/task-dialog/task-dialog.component';
+import {
+  TaskDialogComponent,
+  TaskDialogData,
+} from '../dialogs/task-dialog/task-dialog.component';
 
 @Component({
   selector: 'pm-board',

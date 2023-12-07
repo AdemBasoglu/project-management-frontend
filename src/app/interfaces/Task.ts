@@ -6,6 +6,6 @@ export interface Task {
   name: string;
   description: string;
   createdDate: string;
-  label: TaskLabel;
+  label: string;
   board: Board;
 }
