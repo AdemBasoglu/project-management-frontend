@@ -24,7 +24,9 @@ export class AuthenticationService {
   }
 
   logout() {
+    console.log('logout');
     localStorage.removeItem('token');
     localStorage.removeItem('email');
+    sessionStorage.clear();
   }
 }

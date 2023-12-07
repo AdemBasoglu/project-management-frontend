@@ -1,8 +1,11 @@
-<h1>{{ project.name }}</h1>
+<app-sidebar></app-sidebar>
+<section>
+  <h1>{{ project.name }}</h1>
 
-<div class="boards-container" cdkDropListGroup>
-  <!-- All lists in here will be connected. -->
-  @for(board of boards; track board){
-  <pm-board class="primary-shadow" [board]="board"></pm-board>
-  }
-</div>
+  <div class="boards-container" cdkDropListGroup>
+    <!-- All lists in here will be connected. -->
+    @for(board of boards; track board){
+    <pm-board class="primary-shadow" [board]="board"></pm-board>
+    }
+  </div>
+</section>

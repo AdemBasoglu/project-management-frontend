@@ -5,6 +5,7 @@ import { BoardService } from '../../services/board.service';
 import { UserService } from '../../services/user.service';
 import { BoardComponent } from '../board/board.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 import {
   Router,
   provideRouter,
@@ -20,7 +21,7 @@ import { ProjectService } from '../../services/project.service';
 @Component({
   selector: 'pm-project',
   standalone: true,
-  imports: [BoardComponent, CdkDropList, DragDropModule],
+  imports: [SidebarComponent, BoardComponent, CdkDropList, DragDropModule],
   templateUrl: './project.component.html',
   styleUrl: './project.component.css',
 })

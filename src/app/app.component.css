@@ -1,4 +1,4 @@
-section {
+/* section {
   display: table;
 }
 
@@ -28,5 +28,12 @@ section {
   display: flex;
   justify-content: center;
   width: 120px;
+} */
+
+.app-root {
+  display: flex;
 }
 
+/* :host {
+  display: flex;
+} */
