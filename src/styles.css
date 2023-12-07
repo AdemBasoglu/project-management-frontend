@@ -73,3 +73,33 @@ pm-login {
   align-items: center;
   min-height: 100vh;
 }
+/* Dialog START */
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--clr-primary);
+  background-color: white;
+  border: 1px solid var(--clr-primary);
+  border-radius: 0.5rem;
+  color: var(--clr-primary);
+  padding: 1rem;
+  margin: 1rem;
+}
+.dialog-container h2 {
+  color: var(--clr-primary);
+  margin: 1rem 0.5rem 2rem 0.5rem;
+  /* text-align: center; */
+}
+.dialog-container mat-form-field {
+  width: 100%;
+}
+.dialog-container .btn-container-flex {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+}
+.dialog-container .btn-container-flex > * {
+  flex-grow: 1;
+}
+/* Dialog END */
