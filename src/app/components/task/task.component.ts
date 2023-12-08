@@ -77,6 +77,10 @@ export class TaskComponent implements OnInit {
       },
       error: (err) => console.log(err),
     });
+
+    setTimeout(() => {
+      this.updateTask();
+    }, 200);
   }
 
   openDialog() {
@@ -102,11 +106,6 @@ export class TaskComponent implements OnInit {
           name: '',
         },
       };
-
-      this.taskService.getTaskById(this.task.id).subscribe({
-        next: (task) => (board = task.board),
-        error: (err) => console.log(err),
-      });
 
       if (result) {
         this.taskService.updateTask(result, this.task.id).subscribe({
