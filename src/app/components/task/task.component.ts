@@ -23,6 +23,7 @@ import { TaskService } from '../../services/task.service';
 import { User } from '../../interfaces/User';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { Board } from '../../interfaces/Board';
 
 @Component({
   selector: 'pm-task',
@@ -67,9 +68,19 @@ export class TaskComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.updateTask();
-    this.updateTaskUsers();
-    this.updateColor(this.task);
+    this.taskService.getTaskById(this.task.id).subscribe({
+      next: (task) => {
+        (this.task = task),
+          this.updateTaskUsers(),
+          this.updateColor(this.task),
+          console.log(this.task.board.name);
+      },
+      error: (err) => console.log(err),
+    });
+
+    setTimeout(() => {
+      this.updateTask();
+    }, 200);
   }
 
   openDialog() {
@@ -87,16 +98,26 @@ export class TaskComponent implements OnInit {
     });
 
     dialogRef.closed.subscribe((result) => {
+      let board: Board = {
+        id: 0,
+        name: '',
+        project: {
+          id: 0,
+          name: '',
+        },
+      };
+
       if (result) {
         this.taskService.updateTask(result, this.task.id).subscribe({
           next: (task) => {
-            (this.task = task), this.updateColor(task);
+            (this.task = task),
+              (this.task.board = board),
+              this.updateColor(task);
           },
           error: (err) => console.log(err),
         });
       }
     });
-
   }
 
   updateTaskUsers() {
@@ -118,8 +139,5 @@ export class TaskComponent implements OnInit {
       task.label.toLowerCase() === 'default'
         ? 'grey'
         : this.task.label.toLowerCase();
-
-    console.log('COLOR');
-    console.log(this.color);
   }
 }

@@ -68,14 +68,13 @@ export class BoardComponent implements OnInit {
         event.currentIndex
       );
     } else {
+      this.taskService.changeBoard(Number(taskId), boardId).subscribe();
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex
       );
-
-      this.taskService.changeBoard(Number(taskId), boardId).subscribe();
     }
   }
 
